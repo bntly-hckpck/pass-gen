@@ -9,12 +9,43 @@ char symbols_chars[] = {'!', '@', '#', '$', '%', '&', '+', '-', '?', '_'};
 
 int pass_gen(char *buffer, size_t length, pass_options options) {
 
+    char pool[256];
+    int pool_size = 0;
+
     if (length > MAX_PASSWORD_LENGTH) {
         return -1;  
     }
 
     if (!options.use_uppercase && !options.use_lowercase && !options.use_numbers && !options.use_symbols) {
         return -1;
+    }
+
+    if (options.use_uppercase == true) {
+        for (int i = 0; i < 26; i++) {
+            pool[pool_size + i] = uppercase_chars[i];
+        }
+        pool_size += 26;
+    }
+
+    if (options.use_lowercase == true) {
+        for (int i = 0; i < 26; i++) {
+            pool[pool_size + i] = lowercase_chars[i];
+        }
+        pool_size += 26;
+    }
+
+    if (options.use_numbers == true) {
+        for (int i = 0; i < 10; i++) {
+            pool[pool_size + i] = numbers_chars[i];
+        }
+        pool_size += 10;
+    }
+
+    if (options.use_symbols == true) {
+        for (int i = 0; i < 11; i++) {
+            pool[pool_size + i] = symbols_chars[i];
+        }
+        pool_size += 11;
     }
 
     return 0;
