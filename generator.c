@@ -48,6 +48,12 @@ int pass_gen(char *buffer, size_t length, pass_options options) {
         pool_size += 11;
     }
 
+    for (int i = 0; i < length; i++) {
+        int idx = rand() % pool_size;
+        buffer[i] = pool[idx];
+    }
+
+    buffer[length] = '\0';
     return 0;
 
 }
