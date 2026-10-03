@@ -6,9 +6,9 @@ Minimal secure password generator written in C.
 
 ## Features
 
-- [ ] Interactive password length input
-- [ ] Complexity modifiers (uppercase, lowercase, numbers, symbols)
-- [ ] Random password generator
+- [X] Interactive password length input
+- [X] Complexity modifiers (uppercase, lowercase, numbers, symbols)
+- [X] Random password generator (rand())
 - [ ] Entropy calculator
 - [ ] Strength meter
 - [ ] *TBD*
